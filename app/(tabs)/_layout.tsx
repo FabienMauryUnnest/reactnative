@@ -1,0 +1,87 @@
+import { Tabs } from "expo-router";
+import React from "react";
+
+import { HapticTab } from "@/components/haptic-tab";
+import { IconSymbol } from "@/components/ui/icon-symbol";
+import { Colors } from "@/constants/theme";
+import { useColorScheme } from "@/hooks/use-color-scheme";
+
+export default function TabLayout() {
+  const colorScheme = useColorScheme();
+
+  return (
+    <Tabs
+      screenOptions={{
+        tabBarActiveTintColor: Colors[colorScheme ?? "light"].tint,
+        headerShown: false,
+        tabBarButton: HapticTab,
+      }}
+    >
+      <Tabs.Screen
+        name="home/index"
+        options={{
+          title: "Home",
+          tabBarIcon: ({ color }) => (
+            <IconSymbol size={28} name="house.fill" color={color} />
+          ),
+        }}
+      />
+      <Tabs.Screen
+        name="explore/index"
+        options={{
+          title: "Explore",
+          tabBarIcon: ({ color }) => (
+            <IconSymbol size={28} name="paperplane.fill" color={color} />
+          ),
+        }}
+      />
+
+      <Tabs.Screen
+        name="products/index"
+        options={{
+          title: "Products",
+          tabBarIcon: ({ color }) => (
+            <IconSymbol size={28} name="paperplane.fill" color={color} />
+          ),
+        }}
+      />
+
+      <Tabs.Screen
+        name="products/[id]"
+        options={{
+          href: null,
+        }}
+      />
+
+      <Tabs.Screen
+        name="camera/index"
+        options={{
+          title: "Camera",
+          tabBarIcon: ({ color }) => (
+            <IconSymbol size={28} name="paperplane.fill" color={color} />
+          ),
+        }}
+      />
+
+      <Tabs.Screen
+        name="image/index"
+        options={{
+          title: "Images",
+          tabBarIcon: ({ color }) => (
+            <IconSymbol size={28} name="paperplane.fill" color={color} />
+          ),
+        }}
+      />
+
+      <Tabs.Screen
+        name="api/index"
+        options={{
+          title: "API",
+          tabBarIcon: ({ color }) => (
+            <IconSymbol size={28} name="paperplane.fill" color={color} />
+          ),
+        }}
+      />
+    </Tabs>
+  );
+}
